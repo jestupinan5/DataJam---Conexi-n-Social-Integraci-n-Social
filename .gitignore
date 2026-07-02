@@ -7,10 +7,12 @@
 /7. FORMULARIO_CARACTERIZACION_PROBLEMAS_CS.docx
 /nota_tecnica_integracion_fuentes.docx
 
-# Posibles archivos de SIMAT que se agreguen mas adelante (mismo tratamiento que los demas)
-*[Ss][Ii][Mm][Aa][Tt]*.csv
-*[Ss][Ii][Mm][Aa][Tt]*.xlsx
-*[Ss][Ii][Mm][Aa][Tt]*.geojson
+# Archivos de SIMAT (microdato de estudiantes: nombre, documento, direccion, etc.)
+# Anclados a la raiz del proyecto para NO afectar los resultados agregados que si se
+# suben en outputs/tables y outputs/powerbi (esos tambien tienen "simat" en el nombre).
+/*[Ss][Ii][Mm][Aa][Tt]*.csv
+/*[Ss][Ii][Mm][Aa][Tt]*.xlsx
+/*[Ss][Ii][Mm][Aa][Tt]*.geojson
 /matricula*.csv
 /matricula*.xlsx
 /matricula*.geojson

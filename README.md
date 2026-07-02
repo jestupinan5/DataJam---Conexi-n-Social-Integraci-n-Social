@@ -32,6 +32,7 @@ outputs/figures/
   mapa_ipm_con_hogares_cs.png                   <- IPM + ubicacion exacta de cada hogar CS
   mapa_hogares_cs_sector_catastral.png
   mapa_estudiantes_simat_localidad.png
+  mapa_simat_con_hogares_cs.png                 <- SIMAT + ubicacion exacta de cada hogar CS
   matriz_correlacion_ipm_cs_simat.png
   mapas_comparacion_ipm_cs_simat.png
   dispersion_comparacion_ipm_cs_simat.png
@@ -40,10 +41,11 @@ outputs/powerbi/
   bd_conexion_social_powerbi.db                 <- misma base en SQLite
 ```
 
-> **Nota:** `mapa_ipm_con_hogares_cs.png` grafica la coordenada exacta de los 15.465
-> hogares instalados (un punto por hogar). Se incluye por decisión explícita del
-> equipo; si se va a compartir fuera del equipo, considerar reemplazarlo por una
-> versión de densidad (mapa de calor) en vez de puntos individuales.
+> **Nota:** `mapa_ipm_con_hogares_cs.png` y `mapa_simat_con_hogares_cs.png` grafican
+> la coordenada exacta de los 15.465 hogares instalados (un punto por hogar). Se
+> incluyen por decisión explícita del equipo; si se van a compartir fuera del equipo,
+> considerar reemplazarlos por una versión de densidad (mapa de calor) en vez de
+> puntos individuales.
 
 ## Fuentes de datos
 

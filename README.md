@@ -42,16 +42,16 @@ outputs/powerbi/
 ```
 
 > **Nota:** `mapa_ipm_con_hogares_cs.png` y `mapa_simat_con_hogares_cs.png` grafican
-> la coordenada exacta de los 15.465 hogares instalados (un punto por hogar). Se
-> incluyen por decisión explícita del equipo; si se van a compartir fuera del equipo,
-> considerar reemplazarlos por una versión de densidad (mapa de calor) en vez de
-> puntos individuales.
+> la coordenada exacta de cada hogar **verificado** (localidad declarada = localidad
+> geométrica; ver sección 3 del notebook). Se incluyen por decisión explícita del
+> equipo; si se van a compartir fuera del equipo, considerar reemplazarlos por una
+> versión de densidad (mapa de calor) en vez de puntos individuales.
 
 ## Fuentes de datos
 
 | Fuente | Nivel | ¿Está en este repositorio? |
 |---|---|---|
-| Instalaciones Conexión Social (`Perfiles_CS.xlsx`, SDIS) | Hogar | **No** (dirección y coordenadas de hogares - dato sensible) |
+| Instalaciones Conexión Social (`Perfiles_CS.xlsx`, SDIS) — 72.797 hogares | Hogar | **No** (dirección y coordenadas de hogares - dato sensible) |
 | Encuesta Multipropósito de Bogotá 2021 (`em2021.csv` + variables adicionales, SDP/DANE) | Persona/hogar | **No** (microdato) |
 | Matrícula oficial SIMAT (`Simat_1Jul26.csv`, SED) | Estudiante | **No** (nombre, documento, dirección, teléfono, correo - dato muy sensible; el notebook nunca lee esas columnas) |
 | Límites de Localidad, UPZ y Sector Catastral | Polígono | Sí (`data/geo/`, información pública de IDECA / Catastro Bogotá) |
@@ -76,20 +76,37 @@ a un hogar o estudiante individual (excepto el mapa de puntos señalado arriba).
 
 ## Hallazgos principales (nivel localidad)
 
-- **Pobreza vs. cobertura Conexión Social:** correlación de Spearman = **0.33**
-  (0.57 a nivel de UPZ) - asociación positiva pero moderada. **Usme** tiene la segunda
-  pobreza multidimensional más alta de la ciudad (10.2%) pero una de las coberturas
-  más bajas del programa.
-- **Matrícula oficial (SIMAT) vs. cobertura Conexión Social:** correlación = **0.79**
-  - el programa está bastante alineado con la concentración de estudiantes de colegio
-  público, más que con la pobreza medida por IPM.
-- **Pobreza vs. matrícula oficial:** correlación = solo **0.20/0.21** - la pobreza
-  multidimensional y la concentración de estudiantes públicos no coinciden
-  fuertemente en el espacio, lo que ayuda a explicar por qué la cobertura de Conexión
-  Social se alinea mejor con uno que con el otro.
+El programa opera por fases: de las 20 localidades urbanas, **solo 9 tienen
+instalaciones** (Bosa, Suba, Kennedy, San Cristóbal, Rafael Uribe Uribe, Ciudad
+Bolívar, Engativá, Tunjuelito y Santa Fe — campo `Localidad` de la fuente, sección 3
+del notebook). Eso importa para leer las correlaciones:
+
+- **Pobreza vs. cobertura, toda la ciudad:** correlación de Spearman = **0.36**
+  (0.57 a nivel de UPZ). Pero gran parte de esta asociación viene simplemente de que
+  las localidades sin abrir tienen cobertura 0 sin importar su pobreza — **Usme**
+  tiene la segunda pobreza más alta de la ciudad (10.2%) y cobertura 0 porque el
+  programa **todavía no ha llegado ahí**, no por una falla de focalización.
+- **Pobreza vs. cobertura, solo dentro de las 9 localidades ya abiertas:**
+  correlación = **0.10** — casi nula. Es decir, una vez el programa ya está operando
+  en una localidad, cuánto se instala ahí no está explicado por su nivel de pobreza.
+  Bosa (6.5% IPM) tiene la cobertura más alta (76.6 hogares por 1.000); Santa Fe
+  (8.0% IPM, más pobre) tiene una de las más bajas (17.3 por 1.000).
+- **Matrícula oficial (SIMAT) vs. cobertura Conexión Social:** correlación = **0.77**
+  - el programa está mucho más alineado con la concentración de estudiantes de
+  colegio público que con la pobreza medida por IPM.
+- **Pobreza vs. matrícula oficial:** correlación = solo **0.21** - pobreza y
+  concentración de estudiantes públicos no coinciden fuertemente en el espacio.
+
+**Lectura conjunta:** la prioridad #1 para focalización no es "llegar a más
+localidades pobres" en abstracto, sino dos cosas concretas: (1) evaluar cuándo abrir
+en localidades de alta pobreza que siguen fuera del despliegue (Usme, Los Mártires,
+Antonio Nariño, Puente Aranda), y (2) dentro de las localidades ya abiertas,
+revisar por qué la intensidad de instalación no sigue el nivel de pobreza interno.
 
 El detalle completo, con mapas y tablas por localidad y UPZ, está en el notebook
-(secciones 6, 8 y 9).
+(secciones 6, 8 y 9). El listado de 192 hogares con desajuste geográfico o sin
+coordenadas queda en `revision_equipo_hogares_localidad.xlsx` (solo local, no se
+sube — ver sección 3.1 del notebook).
 
 ## Base de datos para Power BI
 

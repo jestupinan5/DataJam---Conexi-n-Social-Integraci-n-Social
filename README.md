@@ -28,24 +28,34 @@ outputs/tables/
   comparacion_ipm_cs_simat_upz.csv
 outputs/figures/
   dispersion_pobreza_vs_cobertura_localidad.png
-  mapa_pobreza_vs_cobertura_localidad.png
-  mapa_ipm_con_hogares_cs.png                   <- IPM + ubicacion exacta de cada hogar CS
+  mapa_pobreza_vs_cobertura_localidad.png       <- por localidad
+  mapa_pobreza_vs_cobertura_upz.png             <- mismo cruce, por UPZ (mas detalle)
+  mapa_ipm_con_hogares_cs.png                   <- IPM + ubicacion exacta de cada hogar CS, por localidad
+  mapa_ipm_con_hogares_cs_upz.png               <- lo mismo, por UPZ
   mapa_hogares_cs_sector_catastral.png
   mapa_estudiantes_simat_localidad.png
-  mapa_simat_con_hogares_cs.png                 <- SIMAT + ubicacion exacta de cada hogar CS
+  mapa_estudiantes_simat_upz.png
+  mapa_simat_con_hogares_cs.png                 <- SIMAT + ubicacion exacta de cada hogar CS, por localidad
+  mapa_simat_con_hogares_cs_upz.png             <- lo mismo, por UPZ
   matriz_correlacion_ipm_cs_simat.png
-  mapas_comparacion_ipm_cs_simat.png
+  mapas_comparacion_ipm_cs_simat.png            <- por localidad
+  mapas_comparacion_ipm_cs_simat_upz.png        <- por UPZ
   dispersion_comparacion_ipm_cs_simat.png
 outputs/powerbi/
   bd_conexion_social_powerbi.xlsx               <- base de datos agregada (6 tablas) para Power BI
   bd_conexion_social_powerbi.db                 <- misma base en SQLite
 ```
 
-> **Nota:** `mapa_ipm_con_hogares_cs.png` y `mapa_simat_con_hogares_cs.png` grafican
-> la coordenada exacta de cada hogar **verificado** (localidad declarada = localidad
-> geométrica; ver sección 3 del notebook). Se incluyen por decisión explícita del
-> equipo; si se van a compartir fuera del equipo, considerar reemplazarlos por una
-> versión de densidad (mapa de calor) en vez de puntos individuales.
+> **Nota:** los cuatro mapas `..._con_hogares_cs*.png` grafican la coordenada exacta de
+> cada hogar **verificado** (localidad declarada = localidad geométrica; ver sección 3
+> del notebook). Se incluyen por decisión explícita del equipo; si se van a compartir
+> fuera del equipo, considerar reemplazarlos por una versión de densidad (mapa de
+> calor) en vez de puntos individuales.
+>
+> Los mapas de intensidad (IPM, SIMAT y la comparación conjunta) se generan **en dos
+> versiones**: por localidad y por UPZ. La versión UPZ da más detalle geográfico
+> (mismo color para todas las UPZ de un mismo grupo EMB) y marca el límite de cada
+> localidad con una línea más gruesa encima, para no perder esa referencia.
 
 ## Fuentes de datos
 

@@ -25,8 +25,17 @@ outputs/tables/
 outputs/figures/
   dispersion_pobreza_vs_cobertura_localidad.png
   mapa_pobreza_vs_cobertura_localidad.png
+  mapa_ipm_con_hogares_cs.png                   <- IPM + ubicacion exacta de cada hogar CS
   mapa_hogares_cs_sector_catastral.png
+outputs/powerbi/
+  bd_conexion_social_powerbi.xlsx               <- base de datos agregada (5 tablas) para Power BI
+  bd_conexion_social_powerbi.db                 <- misma base en SQLite
 ```
+
+> **Nota:** `mapa_ipm_con_hogares_cs.png` grafica la coordenada exacta de los 15.465
+> hogares instalados (un punto por hogar). Se incluye por decisión explícita del
+> equipo; si se va a compartir fuera del equipo, considerar reemplazarlo por una
+> versión de densidad (mapa de calor) en vez de puntos individuales.
 
 ## Fuentes de datos
 
@@ -59,6 +68,15 @@ nivel de localidad y **0.57** a nivel de UPZ - una asociación positiva pero mod
 que no descarta un desajuste territorial. El caso más notorio: **Usme** tiene la
 segunda pobreza multidimensional más alta de la ciudad (10.2%) pero una de las
 coberturas más bajas del programa. El detalle completo está en el notebook.
+
+## Base de datos para Power BI
+
+`outputs/powerbi/` trae una base de datos agregada (sin hogares individuales) lista
+para conectar en Power BI Desktop, en Excel (5 hojas) o SQLite. El notebook
+(sección 9) explica cómo conectarla y sugiere la estructura de un tablero de una
+página (KPIs, mapa por localidad, barras de cobertura, segmentador). El archivo
+`.pbix` en sí no se puede generar por código - se arma en Power BI Desktop siguiendo
+esa guía.
 
 ## Pendiente
 

@@ -8,9 +8,9 @@
 /nota_tecnica_integracion_fuentes.docx
 
 # Posibles archivos de SIMAT que se agreguen mas adelante (mismo tratamiento que los demas)
-/simat*.csv
-/simat*.xlsx
-/simat*.geojson
+*[Ss][Ii][Mm][Aa][Tt]*.csv
+*[Ss][Ii][Mm][Aa][Tt]*.xlsx
+*[Ss][Ii][Mm][Aa][Tt]*.geojson
 /matricula*.csv
 /matricula*.xlsx
 /matricula*.geojson
@@ -18,8 +18,9 @@
 # Cache de datos intermedios (se regenera al correr el notebook)
 /data/processed/
 
-# Archivos temporales de Python / Jupyter
+# Archivos temporales de Python / Jupyter / Office
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
 .venv/
+~$*

@@ -1,0 +1,25 @@
+# Microdatos y bases originales (contienen datos personales/sensibles) - NO subir
+/Perfiles_CS.xlsx
+/em2021.csv
+/20240430_variables_adicionales_2021.csv
+/20230220_diccionario_variables_encuesta_em2021.ods
+/20240430_diccionario_variables_adicionales_em2021.ods
+/7. FORMULARIO_CARACTERIZACION_PROBLEMAS_CS.docx
+/nota_tecnica_integracion_fuentes.docx
+
+# Posibles archivos de SIMAT que se agreguen mas adelante (mismo tratamiento que los demas)
+/simat*.csv
+/simat*.xlsx
+/simat*.geojson
+/matricula*.csv
+/matricula*.xlsx
+/matricula*.geojson
+
+# Cache de datos intermedios (se regenera al correr el notebook)
+/data/processed/
+
+# Archivos temporales de Python / Jupyter
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
